@@ -1,6 +1,6 @@
 # Request Classifier
 
-Мікросервіс для автоматичної класифікації вхідних запитів до AI-юніту через Gemini 2.5 Flash.
+Мікросервіс для автоматичної класифікації вхідних запитів до AI через Gemini 2.5 Flash.
 
 ## Запуск
 
@@ -47,7 +47,7 @@ curl -X POST http://localhost:8000/classify \
 
 **Великий обсяг** — async + `gather` дає паралельну обробку. На 500+ запитів варто додати батчування з паузами між батчами щоб не спалити rate limit.
 
-**Вартість токенів** — Gemini 2.5 Flash безкоштовний tier: 1500 req/day. 18 запитів ≈ ~10K токенів, вкладається з запасом.
+**Вартість токенів** — використовується Gemini 2.5 Flash, доступний на безкоштовному tier. Точна кількість токенів залежить від довжини запитів, при великому обсязі варто моніторити витрати в Google AI Studio.
 
 ## Що зробив би далі
 
@@ -55,3 +55,7 @@ curl -X POST http://localhost:8000/classify \
 - Запис результату в Google Sheets
 - CLI аргументи (--input, --output) замість фіксованих шляхів
 - Retry на конкретних запитах що впали замість skip
+
+<img width="1426" height="890" alt="image" src="https://github.com/user-attachments/assets/e138ba9d-96f0-4134-af08-09f369afb197" />
+<img width="1307" height="403" alt="image" src="https://github.com/user-attachments/assets/0b05340b-103b-4abc-a9c6-36aacb866c4e" />
+
